@@ -19,6 +19,7 @@ defmodule CLL do
 
   A list can be created by passing a List to the `init/2` function along with
   an boolean defining if the resulting Doubly-Linked-List is circular or not.
+  Once created, you can traverse through the list one or more steps at a time.
 
   ## Examples
       iex> [1, 2, 3, 4, 5]
@@ -35,16 +36,40 @@ defmodule CLL do
       iex> [1, 2, 3, 4, 5]
       ...> |> CLL.init()
       ...> |> CLL.prev()
-      ...> |> CLL.prev()
+      ...> |> CLL.prev(3)
+      ...> |> CLL.next(2)
       ...> |> CLL.value()
       4
+
+  You can also modify the list by inserting, replacing, or removing the current
+  element.  Finally, if desired, you can convert the CLL back into a List.
+
+  ## Examples
+      iex> CLL.init([1, 2, 3, 4, 5])
+      ...> |> CLL.next(2)
+      ...> |> CLL.remove()
+      ...> |> CLL.to_list()
+      [1, 2, 4, 5]
+
+      iex> CLL.init([1, 2, 3, 4, 5])
+      ...> |> CLL.prev(2)
+      ...> |> CLL.replace(:foo)
+      ...> |> CLL.to_list()
+      [1, 2, 3, :foo, 5]
+
+      iex> CLL.init([1, 2, 3, 4, 5])
+      ...> |> CLL.next(3)
+      ...> |> CLL.insert(3.5)
+      ...> |> CLL.insert(3.75)
+      ...> |> CLL.to_list()
+      [1, 2, 3, 3.5, 3.75, 4, 5]
   """
 
   @type cll :: {list, list}
   @type value :: any
 
   @spec init(list) :: cll
-  def init(list), do: {[], list}
+  def init(list) when is_list(list), do: {[], list}
 
   @spec next(cll) :: cll
   def next({[], []}), do: {[], []}
