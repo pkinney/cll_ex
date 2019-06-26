@@ -9,7 +9,7 @@ defmodule CLL.MixProject do
       description: description(),
       package: package(),
       start_permanent: Mix.env() == :prod,
-      dialyzer: [plt_add_apps: [:poison, :mix]],
+      dialyzer: [plt_add_apps: [:mix]],
       deps: deps()
     ]
   end
