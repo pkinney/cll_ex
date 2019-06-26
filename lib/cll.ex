@@ -122,8 +122,8 @@ defmodule CLL do
   def prev(state, offset) when offset < 0, do: next(state, -offset)
   def prev(state, offset), do: prev(prev(state), offset - 1)
 
-  @spec value(cll) :: cll
-  @spec value(cll, number) :: cll
+  @spec value(cll) :: any
+  @spec value(cll, number) :: any
   def value(state, offset \\ 0)
 
   def value({[], []}, _), do: nil
