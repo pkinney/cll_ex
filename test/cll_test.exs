@@ -6,7 +6,7 @@ defmodule CLLTest do
   @empty init([])
   @zip 1..7 |> Enum.to_list() |> init()
 
-  describe "CLL.at/2" do
+  describe "CLL.value/2" do
     test "on an empty list" do
       assert value(@empty, 0) == nil
       assert value(@empty, -1) == nil
