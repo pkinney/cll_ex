@@ -31,7 +31,8 @@ defmodule CLL.MixProject do
   defp deps do
     [
       {:propcheck, "~> 1.1", only: :test},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
