@@ -63,6 +63,30 @@ defmodule CLL do
       ...> |> CLL.insert(3.75)
       ...> |> CLL.to_list()
       [1, 2, 3, 3.5, 3.75, 4, 5]
+
+  To help with use cases where iterating through the list once is useful, CLL
+  keeps track of the "start" of the list so that you can determine when a list
+  has been fully traversed.  A list can also be reset to the initial start
+  position at any time.
+
+  ## Examples
+      iex> CLL.init([1, 2, 3, 4, 5])
+      ...> |> CLL.next(3)
+      ...> |> CLL.prev(2)
+      ...> |> CLL.next()
+      ...> |> CLL.offset()
+      2
+
+      iex> CLL.init([1, 2, 3, 4, 5])
+      ...> |> CLL.next(5)
+      ...> |> CLL.done?()
+      true
+
+      iex> CLL.init([1, 2, 3, 4, 5])
+      ...> |> CLL.next(4)
+      ...> |> CLL.reset()
+      ...> |> CLL.value()
+      1
   """
 
   @type cll :: {list, list}

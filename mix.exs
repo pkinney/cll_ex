@@ -6,9 +6,18 @@ defmodule CLL.MixProject do
       app: :cll,
       version: "0.1.0",
       elixir: "~> 1.8",
+      description: description(),
+      package: package(),
       start_permanent: Mix.env() == :prod,
+      dialyzer: [plt_add_apps: [:poison, :mix]],
       deps: deps()
     ]
+  end
+
+  defp description do
+    """
+    Data structure with circular linked-list behaviour in Elixir
+    """
   end
 
   # Run "mix help compile.app" to learn about applications.
@@ -21,7 +30,17 @@ defmodule CLL.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:propcheck, "~> 1.1", only: :test}
+      {:propcheck, "~> 1.1", only: :test},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
+    ]
+  end
+
+  defp package do
+    [
+      files: ["lib/cll.ex", "mix.exs", "README*"],
+      maintainers: ["Powell Kinney"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/pkinney/topo"}
     ]
   end
 end
