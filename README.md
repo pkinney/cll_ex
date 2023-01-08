@@ -25,7 +25,7 @@ faster than tracking a cursor in a standar List an fetching its neighbors.
 
 ```elixir
 defp deps do
-  [{:cll, "~> 0.1.0"}]
+  [{:cll, "~> 0.2.0"}]
 end
 ```
 
