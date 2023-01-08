@@ -4,13 +4,14 @@ defmodule CLL.MixProject do
   def project do
     [
       app: :cll,
-      version: "0.1.1",
+      version: "0.2.0",
       elixir: "~> 1.7",
       description: description(),
       package: package(),
       start_permanent: Mix.env() == :prod,
       dialyzer: [plt_add_apps: [:mix]],
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -32,7 +33,8 @@ defmodule CLL.MixProject do
     [
       {:propcheck, "~> 1.1", only: :test},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:credo, "~> 1.5", only: :dev, runtime: false}
     ]
   end
 
@@ -42,6 +44,18 @@ defmodule CLL.MixProject do
       maintainers: ["Powell Kinney"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/pkinney/topo"}
+    ]
+  end
+
+  defp aliases do
+    [
+      validate: [
+        "clean",
+        "compile --warnings-as-error",
+        "format --check-formatted",
+        "credo",
+        "dialyzer"
+      ]
     ]
   end
 end

@@ -1,7 +1,8 @@
 # CLL - Circular Linked List for Elixir
 
-[![Build Status](https://travis-ci.org/pkinney/cll_ex.svg?branch=master)](https://travis-ci.org/pkinney/cll_ex)
+![Build Status](https://github.com/pkinney/cll/actions/workflows/ci.yaml/badge.svg)
 [![Hex.pm](https://img.shields.io/hexpm/v/cll.svg)](https://hex.pm/packages/cll)
+[![Documentation](https://img.shields.io/badge/documentation-gray)](https://hexdocs.pm/cll)
 
 This module can be used to represent a data structure with similar behavior
 as circular Doubly-Linked-List.
