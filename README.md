@@ -1,6 +1,6 @@
 # CLL - Circular Linked List for Elixir
 
-![Build Status](https://github.com/pkinney/cll/actions/workflows/ci.yaml/badge.svg)
+![Build Status](https://github.com/pkinney/cll_ex/actions/workflows/ci.yaml/badge.svg)
 [![Hex.pm](https://img.shields.io/hexpm/v/cll.svg)](https://hex.pm/packages/cll)
 [![Documentation](https://img.shields.io/badge/documentation-gray)](https://hexdocs.pm/cll)
 
