@@ -1,4 +1,2 @@
-elixir 1.14.2-otp-25
-erlang 25.2
-bazel 4.1.0
-yarn 1.22.10
+elixir 1.14.5-otp-26
+erlang 26.0
